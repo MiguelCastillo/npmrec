@@ -1,0 +1,34 @@
+{
+  "name": "npmsub",
+  "version": "0.0.0",
+  "description": "npm cli helper to run npm commands in any sub directory that has a package.json file",
+  "main": "index.js",
+  "engines": {
+    "node": ">=4"
+  },
+  "bin": {
+    "npmsub": "bin/cli.js"
+  },
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MiguelCastillo/npmsub.git"
+  },
+  "keywords": [
+    "npm",
+    "cli",
+    "recursive"
+  ],
+  "author": "Miguel Castillo <manchagnu@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MiguelCastillo/npmsub/issues"
+  },
+  "homepage": "https://github.com/MiguelCastillo/npmsub#readme",
+  "dependencies": {
+    "execa": "^0.8.0",
+    "glob": "^7.1.2",
+    "listr": "^0.13.0",
+    "subarg": "^1.0.0"
+  }
+}
