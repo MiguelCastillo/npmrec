@@ -1,6 +1,7 @@
 const Listr = require("listr");
 const execa = require("execa");
 const util = require("util");
+const cpuCount = require("os").cpus().length;
 const defaultCommand = "install";
 
 function npmExec(settings, targets) {
@@ -14,7 +15,7 @@ function npmExec(settings, targets) {
     )
   }));
 
-  return new Listr(listrConfig, { concurrent: 5, exitOnError: false }).run();
+  return new Listr(listrConfig, { concurrent: cpuCount, exitOnError: false }).run();
 }
 
 function buildChildProcessArgv(settings) {
