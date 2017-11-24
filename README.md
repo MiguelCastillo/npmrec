@@ -5,6 +5,12 @@ npm cli helper.
 
 # This is work in progress.
 
+## Install
+
+```
+$ npm install npm-extras -g
+```
+
 
 ## CLI
 
