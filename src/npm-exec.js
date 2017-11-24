@@ -1,30 +1,31 @@
 const Listr = require("listr");
 const execa = require("execa");
 const util = require("util");
+const defaultCommand = "install";
 
-function npmExec(command, options, targets) {
-  command = command || "install";
-  var argv = [command].concat(parseOptions(options || {}));
+function npmExec(settings, targets) {
+  const command = settings.command || defaultCommand;
 
-  var listrConfig = targets.map((dirname) => ({
+  const listrConfig = targets.map((dirname) => ({
     title: "npm " + command + " " + dirname,
     task: () => (
-      execa("npm", argv, { cwd: dirname, stdio: ["pipe", "pipe", "pipe"] })
-      .catch(ex => { throw new Error(">> npm " + command + " " + dirname + "\n" + ex.message) })
+      execa("npm", buildChildProcessArgv(settings), { cwd: dirname, stdio: ["pipe", "pipe", "pipe"] })
+      .catch(ex => { throw new Error(">> npm " + command + " " + dirname + "\n" + (ex.message ? ex.message : "" + ex)) })
     )
   }));
 
   return new Listr(listrConfig, { concurrent: 5, exitOnError: false }).run();
 }
 
-function parseOptions(options) {
-  var result = Object
-    .keys(options)
-    .filter(key => key !== "files")
-    .map(key => key[0] === "-" ? [key, options[key]] : ["--" + toKielbasa(key), options[key]])
-    .reduce((item, next) => item.concat(next), options.files || []);
+function buildChildProcessArgv(settings) {
+  return [settings.command || defaultCommand].concat(settings.input).concat(parseOptions(settings.options || {}));
+}
 
-  return result;
+function parseOptions(options) {
+  return Object
+    .keys(options)
+    .map(key => key[0] === "-" ? [key, options[key]] : ["--" + toKielbasa(key), options[key]])
+    .reduce((item, next) => item.concat(next), []);
 }
 
 function toKielbasa(input) {
