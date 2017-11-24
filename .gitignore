@@ -57,6 +57,6 @@ typings/
 # dotenv environment variables file
 .env
 
-examples/.DS_Store
 .vscode/launch.json
 examples/*/dist
+.DS_Store
