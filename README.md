@@ -19,7 +19,7 @@ $ npm install npm-extras -g
 
 ## npm-deep
 
-Command to run npm commands in current and sub directories that contain package.json files. If no arguments are specified then it just runs `npm install`.
+Run npm commands in current and sub directories where package.json files exist. If no arguments are specified then npm-deep will runs `npm install`.
 
 > All commands are executed concurrently.
 
@@ -48,3 +48,8 @@ $ npm-deep run build
 ```
 $ npm-deep install bit-bundler eslint --save-dev
 ```
+
+
+## npm-subdir
+
+This is just like npm-deep, except that it does not process the package.json in the current directory; only sub directories.
