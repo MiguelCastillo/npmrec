@@ -5,7 +5,7 @@ npm cli helpers
 
 # This is work in progress.
 
-<img src="https://raw.githubusercontent.com/MiguelCastillo/npm-extras/master/img/npm-deep.gif" width="100%"></img>
+<img src="https://raw.githubusercontent.com/MiguelCastillo/npm-extras/master/img/npm-deep.gif" width="50%"></img>
 
 
 ## Install
