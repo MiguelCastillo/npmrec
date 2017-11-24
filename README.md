@@ -19,7 +19,7 @@ $ npm install npm-extras -g
 
 ## npm-deep
 
-Command to run npm commands in sub directories that contain package.json files. If no arguments are specified then it just runs `npm install`.
+Command to run npm commands in current and sub directories that contain package.json files. If no arguments are specified then it just runs `npm install`.
 
 > All commands are executed concurrently.
 
