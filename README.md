@@ -1,6 +1,6 @@
 # npm-extras
 
-npm cli helper.
+npm cli helpers
 
 
 # This is work in progress.
