@@ -1,18 +1,18 @@
 {
-  "name": "npmsub",
+  "name": "npm-extras",
   "version": "0.0.0",
-  "description": "npm cli helper to run npm commands in any sub directory that has a package.json file",
+  "description": "npm cli helpers",
   "main": "index.js",
   "engines": {
     "node": ">=4"
   },
   "bin": {
-    "npmsub": "bin/cli.js"
+    "npm-deep": "bin/npm-deep.js"
   },
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MiguelCastillo/npmsub.git"
+    "url": "git+https://github.com/MiguelCastillo/npm-extras.git"
   },
   "keywords": [
     "npm",
@@ -22,10 +22,11 @@
   "author": "Miguel Castillo <manchagnu@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MiguelCastillo/npmsub/issues"
+    "url": "https://github.com/MiguelCastillo/npm-extras/issues"
   },
-  "homepage": "https://github.com/MiguelCastillo/npmsub#readme",
+  "homepage": "https://github.com/MiguelCastillo/npm-extras#readme",
   "dependencies": {
+    "belty": "^5.1.0",
     "execa": "^0.8.0",
     "glob": "^7.1.2",
     "listr": "^0.13.0",
