@@ -1,23 +1,18 @@
 const Listr = require("listr");
 const execa = require("execa");
-const glob = require("glob");
-const path = require("path");
 const util = require("util");
 
-function npmExec(command, options) {
+function npmExec(command, options, targets) {
   command = command || "install";
   var argv = [command].concat(parseOptions(options || {}));
 
-  var listrConfig = glob
-    .sync(path.join(process.cwd(), "*/**/package.json"), { ignore: "**/node_modules/**" })
-    .map((filePath) => path.dirname(filePath))
-    .map((dirname) => ({
-      title: "npm " + command + " " + dirname,
-      task: () => (
-        execa("npm", argv, { cwd: dirname, stdio: ["pipe", "pipe", "pipe"] })
-        .catch(ex => { throw new Error(">> npm " + command + " " + dirname + "\n" + ex.message) })
-      )
-    }));
+  var listrConfig = targets.map((dirname) => ({
+    title: "npm " + command + " " + dirname,
+    task: () => (
+      execa("npm", argv, { cwd: dirname, stdio: ["pipe", "pipe", "pipe"] })
+      .catch(ex => { throw new Error(">> npm " + command + " " + dirname + "\n" + ex.message) })
+    )
+  }));
 
   return new Listr(listrConfig, { concurrent: 5, exitOnError: false }).run();
 }
