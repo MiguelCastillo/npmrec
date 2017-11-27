@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const npmExec = require("../src/npm-exec");
-const settings = require("../src/parse-cli-options")(process.argv.slice(2));
+const settings = require("./cli-options")(process.argv.slice(2));
 const findPackages = require("../src/find-packages");
 const targets = findPackages.fullPath();
 
