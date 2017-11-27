@@ -7,7 +7,8 @@
     "node": ">=4"
   },
   "bin": {
-    "npm-deep": "bin/npm-deep.js",
+    "npm-release": "bin/npm-release.js",
+    "npm-do": "bin/npm-do.js",
     "npm-subdir": "bin/npm-subdir.js"
   },
   "scripts": {},

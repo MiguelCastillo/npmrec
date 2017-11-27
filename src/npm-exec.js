@@ -2,10 +2,19 @@ const Listr = require("listr");
 const execa = require("execa");
 const util = require("util");
 const cpuCount = require("os").cpus().length;
+const normalizeOptions = require("./normalize-options");
 const defaultCommand = "install";
 
 function npmExec(settings, targets) {
-  const command = settings.command || defaultCommand;
+  if (!settings.input.length) {
+    settings.input.push(defaultCommand);
+  }
+
+  if (!settings.options) {
+    settings.options = {};
+  }
+
+  const command = settings.input[0];
 
   const listrConfig = targets.map((dirname) => ({
     title: "npm " + command + " " + dirname,
@@ -19,18 +28,7 @@ function npmExec(settings, targets) {
 }
 
 function buildChildProcessArgv(settings) {
-  return [settings.command || defaultCommand].concat(settings.input).concat(parseOptions(settings.options || {}));
-}
-
-function parseOptions(options) {
-  return Object
-    .keys(options)
-    .map(key => key[0] === "-" ? [key, options[key]] : ["--" + toKielbasa(key), options[key]])
-    .reduce((item, next) => item.concat(next), []);
-}
-
-function toKielbasa(input) {
-  return input.replace(/[A-Z]/g, (match) => "-" + match.toLowerCase());
+  return settings.input.concat(normalizeOptions(settings.options));
 }
 
 module.exports = npmExec;
