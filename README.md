@@ -56,7 +56,11 @@ $ npm-do install bit-bundler eslint --save-dev --deep
 
 ## npm-subdir
 
-This is just like npm-do, except that it will only process sub directories excluding the current directory.
+This is just like npm-do except that it will only process sub directories excluding the current directory.
+
+## npm-deep
+
+This is just like npm-do except that it will have the `deep` flag set by default.
 
 ## npm-release
 

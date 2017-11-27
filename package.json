@@ -9,6 +9,7 @@
   "bin": {
     "npm-release": "bin/npm-release.js",
     "npm-do": "bin/npm-do.js",
+    "npm-deep": "bin/npm-deep.js",
     "npm-subdir": "bin/npm-subdir.js"
   },
   "scripts": {},
