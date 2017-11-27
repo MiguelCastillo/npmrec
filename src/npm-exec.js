@@ -5,7 +5,7 @@ const cpuCount = require("os").cpus().length;
 const defaultCommand = "install";
 
 function npmExec(settings, targets) {
-  const command = settings.command || defaultCommand;
+  const command = settings.input[0] || defaultCommand;
 
   const listrConfig = targets.map((dirname) => ({
     title: "npm " + command + " " + dirname,
@@ -19,7 +19,9 @@ function npmExec(settings, targets) {
 }
 
 function buildChildProcessArgv(settings) {
-  return [settings.command || defaultCommand].concat(settings.input).concat(parseOptions(settings.options || {}));
+  return settings.input.length ?
+    settings.input.concat(parseOptions(settings.options || {})) :
+    [defaultCommand].concat(parseOptions(settings.options || {}));
 }
 
 function parseOptions(options) {
