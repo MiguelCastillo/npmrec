@@ -17,39 +17,39 @@ $ npm install npm-extras -g
 
 ## CLI
 
-## npm-deep
+## npm-do
 
-Run npm commands in current and sub directories where package.json files exist. If no arguments are specified then npm-deep will runs `npm install`.
-
-> All commands are executed concurrently.
+Run concurrent npm commands in the current directory. npm-do can be configured to run npm commands in sub directories as well via the options `--deep`. If no arguments are specified then npm-do will runs `npm install`.
 
 ### examples
 
-- run "npm install"
+All the examples below are passing the `--deep` flag in order to tell npm-do to also process sub directories.
+
+- The following example will run `npm install`.
 
 ```
-$ npm-deep install
+$ npm-do install --deep
 ```
 
 - run "npm update"
 
 ```
-$ npm-deep update
+$ npm-do update --deep
 ```
 
 - run an npm script called build
 
 ```
-$ npm-deep run build
+$ npm-do run build --deep
 ```
 
 - install a couple of modules in all sub directories as dev dependencies
 
 ```
-$ npm-deep install bit-bundler eslint --save-dev
+$ npm-do install bit-bundler eslint --save-dev --deep
 ```
 
 
 ## npm-subdir
 
-This is just like npm-deep, except that it does not process the package.json in the current directory; only sub directories.
+This is just like npm-do, except that it will only process sub directories excluding the current directory.
