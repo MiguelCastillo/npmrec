@@ -22,8 +22,4 @@ if (settings.options.version && !settings.input.length) {
 
 npmRelease(utils.omit(settings, ["options.deep"]), targets)
   .then(() => console.log("All set"))
-  .catch((ex) => {
-    ex.errors.forEach(error => {
-      console.error("\n" + error.message);
-    });
-  });
+  .catch((ex) => console.error("\n" + ex.message));

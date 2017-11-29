@@ -20,7 +20,7 @@ function npmExec(settings, targets) {
     title: "npm " + command + " " + dirname,
     task: () => (
       execa("npm", buildChildProcessArgv(settings), { cwd: dirname, stdio: ["pipe", "pipe", "pipe"] })
-      .catch(ex => { throw new Error(">> npm " + command + " " + dirname + "\n" + (ex.message ? ex.message : "" + ex)) })
+      .catch(ex => { throw new Error(`>> npm ${command} ${dirname}\n${(ex.message ? ex.message : "" + ex)}`) })
     )
   }));
 
