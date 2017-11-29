@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-const utils = require("belty");
 const npmExec = require("../src/npm-exec");
 const settings = require("./cli-options")(process.argv.slice(2));
 const findPackages = require("../src/find-packages");

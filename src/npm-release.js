@@ -12,7 +12,7 @@ function npmRelease(settings, targets) {
     )
   }));
 
-  return new Listr(listrConfig, { concurrent: cpuCount, exitOnError: false }).run();
+  return new Listr(listrConfig).run();
 }
 
 function buildReleaseTasks(ctx, task, settings, procOptions) {
