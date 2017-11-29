@@ -9,7 +9,7 @@ function npmRelease(settings, targets) {
     task: (ctx, task) => buildReleaseTasks(ctx, task, settings, { cwd: dirname, stdio: ["pipe", "pipe", "pipe"] })
   }));
 
-  return new Listr(listrConfig).run();
+  return new Listr(listrConfig, { concurrent: cpuCount }).run();
 }
 
 function buildReleaseTasks(ctx, task, settings, procOptions) {
