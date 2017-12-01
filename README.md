@@ -1,5 +1,7 @@
 # npm-extras
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/MiguelCastillo/npm-extras.svg)](https://greenkeeper.io/)
+
 npm cli helpers
 
 
