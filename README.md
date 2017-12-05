@@ -109,3 +109,28 @@ $ npm-release major -m "Major update with breaking changes"
 ```
 $ npm-release --version 3.1.2
 ```
+
+
+## npm-pkg
+
+Command to print to console one or more fields from package.json files. `npm-pkg` also supports pacakge.json file in sub directories via the `--deep` flag.
+
+### Examples
+
+- Print the version of the package.json in the current directory.
+
+```
+$ npm-pkg version
+```
+
+- Print the version of package.json files in the current and sub directories.
+
+```
+$ npm-pkg version --deep
+```
+
+- Print the name, dependencies, and scripts in the current and sub directories
+
+```
+$ npm-pkg name dependencies scripts --deep
+```

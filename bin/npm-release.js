@@ -3,7 +3,6 @@
 const utils = require("belty");
 const npmRelease = require("../src/npm-release");
 const findPackages = require("../src/find-packages");
-const path = require("path");
 
 const settings = require("./cli-options")(process.argv.slice(2), {
   alias: {

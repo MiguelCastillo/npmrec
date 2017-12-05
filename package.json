@@ -10,7 +10,8 @@
     "npm-release": "bin/npm-release.js",
     "npm-do": "bin/npm-do.js",
     "npm-deep": "bin/npm-deep.js",
-    "npm-subdir": "bin/npm-subdir.js"
+    "npm-subdir": "bin/npm-subdir.js",
+    "npm-pkg": "bin/npm-pkg.js"
   },
   "scripts": {},
   "repository": {
