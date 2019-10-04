@@ -31,7 +31,7 @@
   "homepage": "https://github.com/MiguelCastillo/npm-extras#readme",
   "dependencies": {
     "belty": "^5.1.0",
-    "execa": "^1.0.0",
+    "execa": "^2.0.5",
     "glob": "^7.1.2",
     "listr": "^0.14.0",
     "subarg": "^1.0.0"
