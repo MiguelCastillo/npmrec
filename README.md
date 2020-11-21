@@ -2,10 +2,8 @@
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/MiguelCastillo/npm-extras.svg)](https://greenkeeper.io/)
 
-npm cli helpers
+Run npm commands concurrently in directories that have `package.json` files.
 
-
-# This is work in progress.
 
 <img src="https://raw.githubusercontent.com/MiguelCastillo/npm-extras/master/img/npm-release.gif" width="50%"></img>
 <img src="https://raw.githubusercontent.com/MiguelCastillo/npm-extras/master/img/npm-deep.gif" width="50%"></img>
@@ -17,20 +15,28 @@ npm cli helpers
 $ npm install npm-extras -g
 ```
 
-
-## CLI
-
 ## npm-do
 
-Run concurrent npm commands in the current directory. npm-do can be configured to run npm commands in sub directories as well via the options `--deep`. If no arguments are specified then npm-do will runs `npm install`.
+`npm-do` runs concurrent npm commands. You can opitonal specify the flag `--deep` to run npm commands in deeply nested subdirectories that have a `package.json` file as well. An npm command is the action for npm to execute. For example, when running `npm install` the command is `install`.
 
-### options
-
-- deep. This flag will be used to determine if sub directories should also be processed. Defaults to false.
+If no npm command is specified, then `npm-do` will run `npm install`.
 
 ### examples
 
-All the examples below are passing the `--deep` flag in order to tell npm-do to also process sub directories.
+Consider a directories structure such as
+```
+- root/
+    - package.json
+    - examples
+        - bit-bundler
+            - package.json
+            - babel
+                package.json
+        - eslint
+            - package.json
+```
+
+`npm-do install` will run `npm install` in the `root` directory. If you specify the `--deep` flag, `npm-do` will do a deep search for `package.json` files and will run `npm install` concurrently. E.g it will run `npm install` in `root`, `examples/bit-bundler`, `examples/bit-bundler/babel`, and `examples/eslint` concurrently.
 
 - The following example will run `npm install`.
 
@@ -44,7 +50,7 @@ $ npm-do install --deep
 $ npm-do update --deep
 ```
 
-- run an npm script called build
+- run an npm script called "build"
 
 ```
 $ npm-do run build --deep
@@ -56,14 +62,13 @@ $ npm-do run build --deep
 $ npm-do install bit-bundler eslint --save-dev --deep
 ```
 
-
 ## npm-subdir
 
-This is just like npm-do except that it will only process sub directories excluding the current directory.
+`npm-subdir` will run npm commands concurrently in all subdirectories (deeply nested) with `package.json` files; excluding root. Given the sample structure in `npm-do`, `npm-subdir install` will run `npm install` in `examples/bit-bundler`, `examples/bit-bundler/babel`, and `examples/eslint`.
 
 ## npm-deep
 
-This is just like npm-do except that it will have the `deep` flag set by default.
+`npm-deep` will run npm commands in the root directory as well as subdirectories (deeply nested) with `package.json` files. This is an alias for `npm-do --deep`. Given the sample structure in `npm-do`, `npm-deep install` will run `npm install` in `root`, `examples/bit-bundler`, `examples/bit-bundler/babel`, and `examples/eslint`.
 
 ## npm-release
 

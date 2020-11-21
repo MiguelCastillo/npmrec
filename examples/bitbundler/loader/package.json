@@ -1,0 +1,15 @@
+{
+    "name": "examples-bitloader-loader",
+    "version": "1.0.0",
+    "description": "bit-bundler examples",
+    "main": "index.js",
+    "author": "Miguel Castillo <manchagnu@gmail.com>",
+    "license": "MIT",
+    "dependencies": {
+      "log2console": "^1.0.3"
+    },
+    "devDependencies": {
+      "bit-bundler": "latest",
+    }
+  }
+  
