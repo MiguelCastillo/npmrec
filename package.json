@@ -30,10 +30,10 @@
   },
   "homepage": "https://github.com/MiguelCastillo/npm-extras#readme",
   "dependencies": {
-    "belty": "^5.1.0",
-    "execa": "^1.0.0",
-    "glob": "^7.1.2",
-    "listr": "^0.14.0",
+    "belty": "^5.2.2",
+    "execa": "^4.1.0",
+    "glob": "^7.1.6",
+    "listr": "^0.14.3",
     "subarg": "^1.0.0"
   }
 }
